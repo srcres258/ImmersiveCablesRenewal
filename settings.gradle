@@ -5,6 +5,12 @@ pluginManagement {
             name = 'MinecraftForge'
             url = 'https://maven.minecraftforge.net/'
         }
+
+        // Correct the repository location of the plugin 'org.gradle.toolchains.foojay-resolver-convention'
+        // Link: https://plugins.gradle.org/plugin/org.gradle.toolchains.foojay-resolver-convention
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 }
 
