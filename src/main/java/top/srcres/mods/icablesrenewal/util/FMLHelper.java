@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: LGPL-3.0-only
+
 package top.srcres.mods.icablesrenewal.util;
 
 import net.minecraftforge.fml.ModList;
