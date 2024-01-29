@@ -18,4 +18,9 @@ public interface IICRBootstrap {
      * Initialize the discovered modules.
      */
     void doModulesInit();
+
+    /**
+     * Build up the mod's configuration for FML.
+     */
+    void buildModConfig();
 }

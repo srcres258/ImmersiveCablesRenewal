@@ -1,5 +1,9 @@
 package top.srcres.mods.icablesrenewal;
 
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.ModLoadingContext;
+import net.minecraftforge.fml.config.ModConfig;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.objectweb.asm.Type;
 import top.srcres.mods.icablesrenewal.api.IICRBootstrap;
 import top.srcres.mods.icablesrenewal.api.modules.ICRModule;
@@ -37,5 +41,16 @@ public class ICRBootstrap implements IICRBootstrap {
     @Override
     public void doModulesInit() {
         ICRCore.moduleManager.doModulesInit();
+    }
+
+    @Override
+    public void buildModConfig() {
+        ICRModuleManager manager = ICRCore.moduleManager;
+
+        for (ModConfig.Type type : ModConfig.Type.values()) {
+            ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
+            manager.processBuildModConfig(builder, type);
+            ModLoadingContext.get().registerConfig(type, builder.build());
+        }
     }
 }

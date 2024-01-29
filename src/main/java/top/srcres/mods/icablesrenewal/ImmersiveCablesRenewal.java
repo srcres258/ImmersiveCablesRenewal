@@ -24,6 +24,7 @@ public class ImmersiveCablesRenewal {
         bootstrap.doCoreInit();
         bootstrap.discoverModules();
         bootstrap.doModulesInit();
+        bootstrap.buildModConfig();
     }
 
     public static ImmersiveCablesRenewal getInstance() {

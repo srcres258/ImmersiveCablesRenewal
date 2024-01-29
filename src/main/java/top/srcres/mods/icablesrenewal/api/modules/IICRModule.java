@@ -1,6 +1,8 @@
 package top.srcres.mods.icablesrenewal.api.modules;
 
+import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.config.ModConfig;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -72,5 +74,13 @@ public interface IICRModule {
      * @param eventBus ImmersiveCablesRenewal's mod event bus used to register listeners.
      */
     default void onRegisterListener(@NotNull IEventBus eventBus) {
+    }
+
+    /**
+     * A callback used to build ImmersiveCablesRenewal's mod configuration.
+     * @param builder The builder to create ImmersiveCablesRenewal's mod configuration.
+     * @param type The type of the configuration being built.
+     */
+    default void onBuildModConfig(@NotNull ForgeConfigSpec.Builder builder, @NotNull ModConfig.Type type) {
     }
 }

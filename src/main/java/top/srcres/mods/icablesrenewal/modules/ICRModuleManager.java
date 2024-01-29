@@ -1,5 +1,7 @@
 package top.srcres.mods.icablesrenewal.modules;
 
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.config.ModConfig;
 import org.jetbrains.annotations.NotNull;
 import top.srcres.mods.icablesrenewal.ImmersiveCablesRenewal;
 import top.srcres.mods.icablesrenewal.api.modules.ICRModule;
@@ -63,6 +65,13 @@ public class ICRModuleManager implements IICRModuleManager {
     @Override
     public List<IICRModule> getModuleList() {
         return moduleList;
+    }
+
+    @Override
+    public void processBuildModConfig(@NotNull ForgeConfigSpec.Builder builder, @NotNull ModConfig.Type type) {
+        for (IICRModule module : moduleList) {
+            module.onBuildModConfig(builder, type);
+        }
     }
 
     private static ModuleLoadFailureException loadFailEx(String className, Exception cause) {
