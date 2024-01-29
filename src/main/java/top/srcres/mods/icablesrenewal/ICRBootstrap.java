@@ -10,6 +10,7 @@ import top.srcres.mods.icablesrenewal.api.IICRBootstrap;
 import top.srcres.mods.icablesrenewal.api.modules.ICRModule;
 import top.srcres.mods.icablesrenewal.api.modules.IICRModule;
 import top.srcres.mods.icablesrenewal.modules.ICRModuleManager;
+import top.srcres.mods.icablesrenewal.util.DeferredRegisters;
 import top.srcres.mods.icablesrenewal.util.FMLHelper;
 
 import java.util.Objects;
@@ -19,6 +20,7 @@ public class ICRBootstrap implements IICRBootstrap {
     @Override
     public void doCoreInit() {
         ICRCore.moduleManager = new ICRModuleManager();
+        DeferredRegisters.init();
     }
 
     @Override
